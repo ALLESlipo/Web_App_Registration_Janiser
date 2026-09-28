@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal source documents (kept locally, not published)
+PB-TRD-2-Study.pdf
