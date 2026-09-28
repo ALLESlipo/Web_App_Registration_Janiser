@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Illustration of a shield protecting a pseudonymous participant ID card">
+  <path d="M60 120c20-62 104-92 176-72s108 88 90 156-90 116-166 104S40 182 60 120Z" fill="#e3f0f5"/>
+
+  <!-- Shield -->
+  <path d="M180 44l104 36v78c0 72-46 124-104 148-58-24-104-76-104-148V80Z" fill="#fff" stroke="#78b3ce" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M180 66l84 29v63c0 58-36 100-84 121Z" fill="#cfe5ef" opacity=".6"/>
+
+  <!-- ID card with a code instead of a name -->
+  <rect x="118" y="128" width="124" height="82" rx="12" fill="#f6f4ee" stroke="#5b8fa6" stroke-width="3"/>
+  <circle cx="150" cy="160" r="14" fill="#80b7ad"/>
+  <path d="M130 194c2-12 10-18 20-18s18 6 20 18" fill="#80b7ad"/>
+  <rect x="180" y="148" width="46" height="8" rx="4" fill="#78b3ce"/>
+  <rect x="180" y="164" width="34" height="7" rx="3.5" fill="#c9d8dd"/>
+  <rect x="180" y="178" width="40" height="7" rx="3.5" fill="#c9d8dd"/>
+  <rect x="180" y="192" width="24" height="7" rx="3.5" fill="#c9d8dd"/>
+
+  <!-- Lock badge -->
+  <circle cx="236" cy="236" r="30" fill="#80b7ad"/>
+  <rect x="222" y="234" width="28" height="22" rx="5" fill="#fff"/>
+  <path d="M227 234v-8a9 9 0 0 1 18 0v8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="236" cy="245" r="3.5" fill="#80b7ad"/>
+
+  <circle cx="84" cy="250" r="8" fill="#f2c6a8"/>
+  <circle cx="300" cy="120" r="6" fill="#80b7ad" opacity=".8"/>
+  <circle cx="290" cy="300" r="5" fill="#78b3ce"/>
+</svg>

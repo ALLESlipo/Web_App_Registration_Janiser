@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Illustration of a liquid probiotic bottle and dropper">
+  <path d="M52 132c14-66 96-104 170-88s116 80 102 150-72 128-152 124S38 198 52 132Z" fill="#f6f4ee"/>
+  <circle cx="276" cy="262" r="58" fill="#d5e9e4"/>
+
+  <!-- Bottle -->
+  <rect x="138" y="52" width="76" height="34" rx="10" fill="#80b7ad"/>
+  <rect x="152" y="84" width="48" height="26" rx="6" fill="#fff" stroke="#5b8fa6" stroke-width="3"/>
+  <rect x="116" y="106" width="120" height="196" rx="30" fill="#fff" stroke="#5b8fa6" stroke-width="3"/>
+  <path d="M119 214c20-12 40-12 58 0s38 12 56 0v58c0 16-12 28-28 28h-58c-16 0-28-12-28-28Z" fill="#cfe5ef"/>
+  <rect x="136" y="146" width="80" height="50" rx="10" fill="#f6f4ee" stroke="#e2dccb" stroke-width="2"/>
+  <rect x="148" y="160" width="56" height="7" rx="3.5" fill="#80b7ad"/>
+  <rect x="148" y="175" width="38" height="6" rx="3" fill="#c9d8dd"/>
+  <circle cx="150" cy="248" r="5" fill="#fff" opacity=".9"/>
+  <circle cx="200" cy="262" r="4" fill="#fff" opacity=".9"/>
+  <circle cx="176" cy="282" r="3" fill="#fff" opacity=".9"/>
+
+  <!-- Dropper -->
+  <g transform="rotate(28 282 146)">
+    <rect x="270" y="80" width="24" height="34" rx="10" fill="#f2c6a8"/>
+    <path d="M274 112h16v58l-8 16-8-16Z" fill="#fff" stroke="#5b8fa6" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <path d="M272 214c0 7-5 12-10 12s-10-5-10-12 10-19 10-19 10 12 10 19Z" fill="#78b3ce"/>
+
+  <!-- Bacteria -->
+  <rect x="58" y="224" width="40" height="20" rx="10" fill="#80b7ad" transform="rotate(-20 78 234)"/>
+  <circle cx="70" cy="232" r="2.5" fill="#fff"/><circle cx="84" cy="228" r="2.5" fill="#fff"/>
+  <circle cx="88" cy="96" r="9" fill="#78b3ce" opacity=".8"/>
+  <circle cx="290" cy="300" r="7" fill="#f2c6a8"/>
+  <rect x="262" y="246" width="30" height="15" rx="7.5" fill="#78b3ce" opacity=".85" transform="rotate(24 277 253)"/>
+  <circle cx="300" cy="66" r="5" fill="#80b7ad"/>
+</svg>

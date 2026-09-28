@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" role="img" aria-label="Illustration of the connection between the gut and the brain">
+  <!-- Background shapes -->
+  <path d="M86 118C120 42 238 12 330 34s174 96 170 196-70 190-176 208S104 420 60 330 52 194 86 118Z" fill="#e3f0f5"/>
+  <path d="M338 262c48-22 118-6 140 42s-6 112-62 128-116-8-128-58 2-90 50-112Z" fill="#d5e9e4"/>
+
+  <!-- Head profile -->
+  <path d="M150 312c-10-50-30-90-28-138 2-72 58-118 124-114 60 4 98 50 96 112-1 18 8 28 18 44 6 10-2 16-12 18 4 8 2 18-6 22 6 8 0 18-12 20-12 2-25 2-30 16l-2 20Z" fill="#cfe5ef"/>
+  <!-- Brain -->
+  <g transform="translate(252 160) scale(.74) translate(-256 -138)">
+  <path d="M196 156c-18-2-30-18-24-36s24-26 40-20c4-18 24-28 42-22 12-14 36-14 48 0 18-4 36 8 38 26 16 8 20 30 8 44 6 18-6 36-24 38-6 16-26 22-40 14-12 12-34 12-46 0-18 4-34-8-36-24-6 0-6-6-6-20Z" fill="#fff" stroke="#78b3ce" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M212 104c6 14 2 26-10 34M254 90c-4 16 4 30 18 36M300 104c-10 10-10 24 0 34M232 150c12-6 26-4 34 6M282 164c8-8 22-10 32-2M214 176c10 6 22 6 30-2" fill="none" stroke="#78b3ce" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Gut -->
+  <path d="M322 418V318q0-30 30-30h92q30 0 30 30v74q0 26-26 26h-40" fill="none" stroke="#80b7ad" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M352 322h78q14 0 14 14t-14 14h-64q-14 0-14 14t14 14h64q14 0 14 14t-14 14h-54" fill="none" stroke="#a9d0c7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Gut–brain signal path -->
+  <path d="M306 192c62 4 104 38 92 94" fill="none" stroke="#78b3ce" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 13"/>
+  <circle cx="306" cy="192" r="7" fill="#78b3ce"/>
+  <circle cx="398" cy="286" r="7" fill="#80b7ad"/>
+
+  <!-- Friendly bacteria -->
+  <g>
+    <rect x="428" y="200" width="44" height="22" rx="11" fill="#f2c6a8" transform="rotate(-24 450 211)"/>
+    <circle cx="442" cy="208" r="2.5" fill="#fff"/><circle cx="456" cy="202" r="2.5" fill="#fff"/>
+    <rect x="266" y="360" width="38" height="19" rx="9.5" fill="#78b3ce" opacity=".85" transform="rotate(18 285 369)"/>
+    <circle cx="486" cy="286" r="10" fill="#80b7ad" opacity=".9"/>
+    <circle cx="296" cy="420" r="7" fill="#f2c6a8"/>
+    <circle cx="492" cy="254" r="5" fill="#78b3ce"/>
+    <rect x="96" y="360" width="32" height="16" rx="8" fill="#80b7ad" opacity=".75" transform="rotate(-30 112 368)"/>
+    <circle cx="80" cy="250" r="6" fill="#f2c6a8"/>
+    <circle cx="412" cy="84" r="8" fill="#80b7ad" opacity=".7"/>
+    <circle cx="434" cy="112" r="4.5" fill="#78b3ce" opacity=".8"/>
+  </g>
+</svg>
