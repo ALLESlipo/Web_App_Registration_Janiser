@@ -65,7 +65,7 @@ main.tsx
 
 | File | Purpose |
 | --- | --- |
-| `types.ts` | `Content` type (the shape every language must fill), `SECTION_IDS` (menu/section order and anchor ids), `STUDY_NAME`. |
+| `types.ts` | `Content` type (the shape every language must fill), `SECTION_IDS` (menu/section order and anchor ids), and study-wide values that are the same in every language: `STUDY_NAME`, `SPONSOR_NAME` and `SPONSOR_ADDRESS` (footer), `CONTACT_EMAIL` (general-questions address in Contact), `NURSE_WHATSAPP_NUMBER` / `NURSE_WHATSAPP_LINK` (study nurse WhatsApp chat), `IMPRINT_URL` (footer imprint link, currently dioscurides.com). |
 | `en.ts` | English copy, from the PDF. The reference language. |
 | `de.ts`, `es.ts`, `el.ts`, `sq.ts` | German, Spanish, Greek, Albanian copy. Same shape as `en.ts`; TypeScript reports anything missing. |
 
@@ -101,8 +101,9 @@ Inside copy strings, two light markups are rendered by `Text`:
 | `RegisterForm.tsx` | The registration form — see [Registration flow](#registration-flow). |
 | `StudyArea.tsx` | Description of the future participant portal; login button disabled. `FEATURE_ICONS` by position. |
 | `Faq.tsx` | Questions as native `<details>` accordions. |
-| `Contact.tsx` | Contact cards (general, nurse, emergency). |
-| `Footer.tsx` | Sponsor/legal placeholders, links, GCP statement, crisis note. |
+| `Contact.tsx` | Contact cards, left to right: study nurse (text plus a WhatsApp chat button, `NURSE_WHATSAPP_LINK`), emergency 112 (centre), general questions (`CONTACT_EMAIL` as a mailto link). |
+| `Footer.tsx` | Sponsor name and address (`SPONSOR_NAME`, `SPONSOR_ADDRESS`), imprint link (`IMPRINT_URL`, label `footer.imprint`), document links, GCP statement, crisis note. |
+| `WhatsAppIcon.tsx` | Inline WhatsApp logo (Simple Icons, CC0), so nothing is loaded from WhatsApp/Meta. |
 | `SafetyStrip.tsx` | Emergency notice with a `tel:112` link, pinned to the bottom of the viewport on every screen. Required by the copy deck; keep it visible. |
 
 ### `src/assets/illustrations/`
@@ -133,20 +134,22 @@ import in the component) — no other change is needed.
    (`isValidPhone`, the same rule the plugin applies), a plausible date of birth, all consents ticked.
    Returns **error keys** (e.g. `'required'`), not text, so messages re-translate when the visitor
    switches language.
-3. **`handleSubmit`** — on errors, focuses the first invalid field. Otherwise POSTs JSON to
-   `VITE_REGISTRATION_ENDPOINT`:
+3. **`handleSubmit`** — on errors, focuses the first invalid field. Otherwise POSTs the form to
+   `VITE_REGISTRATION_ENDPOINT` as **form-encoded** data (`application/x-www-form-urlencoded`):
 
-   ```json
-   {
-     "first_name": "…", "last_name": "…", "birthday": "YYYY-MM-DD",
-     "gender": "female|male", "phone": "…", "email": "…",
-     "country": "…", "city": "…", "preferred_language": "Deutsch",
-     "contact_time": "morning|afternoon|evening|any|",
-     "project_id": 698, "consent": true,
-     "consents": { "age": true, "pis": true, "voluntary": true, "data": true, "treatment": true },
-     "language": "en|de", "website": ""
-   }
    ```
+   first_name, last_name, birthday (YYYY-MM-DD), gender (female|male), phone, email,
+   country, city, preferred_language (e.g. "Deutsch"), contact_time (morning|afternoon|evening|any|),
+   project_id (698), consent=1, consents[age]=1, consents[pis]=1, consents[voluntary]=1,
+   consents[data]=1, consents[treatment]=1, language (en|de), website (honeypot, empty)
+   ```
+
+   **Why not JSON:** a JSON POST to another domain makes the browser send a CORS "preflight"
+   (OPTIONS) first. On the production server that preflight is answered by custom code without an
+   `Access-Control-Allow-Origin` header, so browsers block it (`PreflightMissingAllowOriginHeader`).
+   A form-encoded POST without custom headers is a "simple" request with no preflight; WordPress
+   adds the allow-origin header to the actual response. Keep it that way unless the production
+   preflight is fixed. The plugin accepts both formats (`get_json_params()` or `get_body_params()`).
 
    `language` controls the language of the plugin's confirmation email; the plugin only has English
    and German, so other site languages send `en`.
@@ -164,7 +167,7 @@ class `NutriMinds_Survey`). The parts this site depends on (added in v1.2.0):
 | Method / constant | Purpose |
 | --- | --- |
 | `register_rest_routes()` | Registers `POST /wp-json/nms/v1/register`. |
-| `check_rest_origin()` | Accepts the request only if the browser's `Origin` is allowed: `ALLOWED_ORIGINS` (`https://mdd-study.nutriminds.net`), plus the `NMS_ALLOWED_ORIGINS` constant in `wp-config.php` and the `nms_allowed_origins` filter. Otherwise 403. |
+| `check_rest_origin()` | Accepts the request only if the browser's `Origin` is allowed: `ALLOWED_ORIGINS` (`https://trd-2-study.org`, `https://www.trd-2-study.org`, and the legacy `https://mdd-study.nutriminds.net`), plus the `NMS_ALLOWED_ORIGINS` constant in `wp-config.php` and the `nms_allowed_origins` filter. Otherwise 403. |
 | `handle_rest_registration()` | Reads the JSON body and calls `process_registration()`. |
 | `process_registration()` | Shared by the REST endpoint and the plugin's own AJAX form: rate limit (8/hour/IP), honeypot, validation, duplicate check, storage, emails. Returns `{ success, status, message }`. |
 | `registration_exists_for()` | Duplicate check: same email **or** phone **within the same project** → 409. |

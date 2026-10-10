@@ -797,8 +797,47 @@ a:hover {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
+}
+
+/* Three equal columns, so the emergency card sits in the centre (nurse | emergency | general). */
+@media (min-width: 860px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px 18px 8px 14px;
+  border-radius: 999px;
+  background: #1d7a46;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.whatsapp-button:hover {
+  background: #17663a;
+  color: #fff;
+}
+
+.whatsapp-button__icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.whatsapp-button__number {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 /* ---------- Registration form ---------- */

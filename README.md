@@ -2,7 +2,7 @@
 
 Participant website and registration form for the clinical study **PB-TRD-2-Study 26/27**
 (the JANISER probiotic study in recurrent depression), published at
-**https://mdd-study.nutriminds.net/**.
+**https://trd-2-study.org/** (it previously ran at mdd-study.nutriminds.net).
 
 It is a one-page React site in five languages (English, Deutsch, Español, Ελληνικά, Shqip).
 There is no separate database: registrations are sent to the **NutriMinds Survey** WordPress
@@ -10,7 +10,7 @@ plugin on nutriminds.net and stored in its WordPress database, under the project
 "TRD-2-STUDY26/27".
 
 ```
-Visitor ──► mdd-study.nutriminds.net (this app, static files)
+Visitor ──► trd-2-study.org (this app, static files)
                │  POST JSON
                ▼
            nutriminds.net/wp-json/nms/v1/register  (nutriminds-survey plugin)
@@ -63,20 +63,22 @@ define( 'NMS_ALLOWED_ORIGINS', 'http://localhost:5180' );
 
 ## Deploying
 
-1. Make sure the **nutriminds-survey** plugin on nutriminds.net is version **1.2.0 or later**
+1. Make sure the **nutriminds-survey** plugin on nutriminds.net is version **1.2.2 or later**
    (it provides the REST endpoint and the team notification email).
 2. In wp-admin → NutriMinds Survey → Projects, check the ID of "TRD-2-STUDY26/27" and that it has no
    past end date.
 3. Create `.env.production.local` with the production values from `.env.example`.
 4. `npm run build`
-5. Upload the **contents** of `dist/` to the document root of `mdd-study.nutriminds.net` on SiteGround.
+5. Upload the **contents** of `dist/` to the document root of `trd-2-study.org` on SiteGround
+   (usually `trd-2-study.org/public_html`), then flush SiteGround's Dynamic Cache.
 
 The site is plain static files; no Node.js is needed on the server.
 
 ## Before launch
 
 - Text marked `[ … ]` (highlighted yellow on the page) is a placeholder still to be supplied:
-  response time, contact email/phone, compensation, sponsor, address, imprint, ethics committee.
+  currently only the compensation answer in the FAQ. The contact phone number is intentionally
+  not shown until a real study number exists.
 - Translations of passages revised in `PB-TRD-2-Study.pdf` (hero, About, eligibility, Day 0,
   reminders, Register intro, blinding FAQ) and all interface text are new and need a native-speaker
   review. Consent wording must match the ethics-approved Participant Information Sheet and ICF.
@@ -91,3 +93,5 @@ The site is plain static files; no Node.js is needed on the server.
 - `PB-TRD-2-Study.pdf` — current English copy (highlighted passages are the revised wording used). Kept locally, not in the repository.
 - Copy deck with the five translations: sponsor email "MDD-study.org" of 29 July 2026
   (older wording; see "Before launch").
+
+dioscurides.com

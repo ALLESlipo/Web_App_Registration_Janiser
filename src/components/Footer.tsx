@@ -1,3 +1,4 @@
+import { IMPRINT_URL, SPONSOR_ADDRESS, SPONSOR_NAME } from '../content/types'
 import { useLanguage } from '../i18n/useLanguage'
 import { Text } from './Text'
 
@@ -7,9 +8,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container">
         <p className="site-footer__org">
-          {footer.org.map((o, i) => (
-            <span key={o}>{i > 0 && ' · '}<Text>{o}</Text></span>
-          ))}
+          {SPONSOR_NAME} · {SPONSOR_ADDRESS} ·{' '}
+          <a href={IMPRINT_URL} target="_blank" rel="noreferrer">{footer.imprint}</a>
         </p>
         <ul className="site-footer__links">
           {/* TODO: link to the real documents once they are available. */}

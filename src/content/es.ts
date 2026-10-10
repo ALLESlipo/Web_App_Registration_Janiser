@@ -109,6 +109,7 @@ export const es: Content = {
       contactTime: 'Horario preferido de contacto',
     },
     optional: 'opcional',
+    dateFormat: 'DD/MM/AAAA',
     genders: [
       { value: 'female', label: 'Mujer' },
       { value: 'male', label: 'Hombre' },
@@ -141,7 +142,7 @@ export const es: Content = {
       network: 'No se pudo enviar su registro. Inténtelo de nuevo o contáctenos directamente.',
     },
     confirmationTitle: 'Gracias — hemos recibido su registro.',
-    confirmation: 'Un miembro de nuestro equipo del estudio se pondrá en contacto con usted en un plazo de [ X ] días hábiles para responder sus preguntas y organizar su visita basal. Mientras tanto, puede explorar «Mi área del estudio» o contactarnos si tiene alguna duda.',
+    confirmation: 'Un miembro de nuestro equipo del estudio se pondrá en contacto con usted en un plazo de 2 días hábiles para responder sus preguntas y organizar su visita basal. Mientras tanto, puede explorar «Mi área del estudio» o contactarnos si tiene alguna duda.',
   },
   studyArea: {
     title: 'Mi área del estudio',
@@ -170,17 +171,17 @@ export const es: Content = {
   },
   contact: {
     title: 'Contacto',
-    general: { label: 'Preguntas generales', email: '[ correo electrónico ]', phone: '[ teléfono ]' },
-    nurse: { label: 'Su enfermera del estudio', text: 'Disponible a través de Mi área del estudio una vez registrado/a.' },
+    general: { label: 'Preguntas generales' },
+    nurse: { label: 'Su enfermera del estudio', text: 'Disponible a través de Mi área del estudio una vez registrado/a.', whatsapp: 'Chatear por WhatsApp' },
     emergency: {
       label: 'Emergencias médicas o preocupaciones de seguridad',
       text: 'Llame al 112 (o al número de emergencias de su país) o acuda a la urgencia más cercana. Este sitio web y el equipo del estudio no pueden proporcionar atención de emergencia.',
     },
   },
   footer: {
-    org: ['[ Nombre legal del patrocinador/institución ]', '[ Dirección postal ]', '[ Aviso legal ]'],
+    imprint: 'Aviso legal',
     links: ['Política de Privacidad', 'Términos de Uso', 'Hoja de Información al Participante'],
-    compliance: 'Este estudio se lleva a cabo de conformidad con la Declaración de Helsinki y las normas aplicables de Buena Práctica Clínica (BPC), y ha sido revisado por [ nombre del Comité de Ética ].',
+    compliance: 'Este estudio se lleva a cabo de conformidad con la Declaración de Helsinki y las normas aplicables de Buena Práctica Clínica (BPC), y ha sido revisado por Dorina Serafeim.',
     crisis: 'Si tiene pensamientos suicidas o de autolesión, póngase en contacto de inmediato con el número de emergencias de su país o con una línea de ayuda en crisis — no necesita participar en este estudio para pedir ayuda.',
   },
 }

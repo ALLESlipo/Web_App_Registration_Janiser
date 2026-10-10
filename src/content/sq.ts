@@ -109,6 +109,7 @@ export const sq: Content = {
       contactTime: 'Ora e preferuar e kontaktit',
     },
     optional: 'opsionale',
+    dateFormat: 'DD/MM/VVVV',
     genders: [
       { value: 'female', label: 'Femër' },
       { value: 'male', label: 'Mashkull' },
@@ -141,7 +142,7 @@ export const sq: Content = {
       network: 'Regjistrimi juaj nuk mund të dërgohej. Ju lutemi provoni përsëri ose na kontaktoni drejtpërdrejt.',
     },
     confirmationTitle: 'Faleminderit — e morëm regjistrimin tuaj.',
-    confirmation: 'Një anëtar i ekipit tonë të studimit do t\'ju kontaktojë brenda [ X ] ditëve pune për t\'iu përgjigjur pyetjeve dhe për të organizuar vizitën tuaj fillestare. Ndërkohë, mund të eksploroni "Zonën time të studimit" ose të na kontaktoni për çdo pyetje.',
+    confirmation: 'Një anëtar i ekipit tonë të studimit do t\'ju kontaktojë brenda 2 ditëve pune për t\'iu përgjigjur pyetjeve dhe për të organizuar vizitën tuaj fillestare. Ndërkohë, mund të eksploroni "Zonën time të studimit" ose të na kontaktoni për çdo pyetje.',
   },
   studyArea: {
     title: 'Zona ime e studimit',
@@ -170,17 +171,17 @@ export const sq: Content = {
   },
   contact: {
     title: 'Kontakt',
-    general: { label: 'Pyetje të përgjithshme', email: '[ email ]', phone: '[ telefon ]' },
-    nurse: { label: 'Infermieri/ja juaj i/e studimit', text: 'I/E disponueshëm/me përmes Zonës time të studimit pas regjistrimit.' },
+    general: { label: 'Pyetje të përgjithshme' },
+    nurse: { label: 'Infermieri/ja juaj i/e studimit', text: 'I/E disponueshëm/me përmes Zonës time të studimit pas regjistrimit.', whatsapp: 'Shkruani në WhatsApp' },
     emergency: {
       label: 'Urgjenca mjekësore ose shqetësime sigurie',
       text: 'Telefononi 112 (ose numrin lokal të urgjencës) ose shkoni në urgjencën më të afërt. Kjo faqe interneti dhe ekipi i studimit nuk mund të ofrojnë kujdes urgjent.',
     },
   },
   footer: {
-    org: ['[ Emri ligjor i sponsorit/institucionit ]', '[ Adresa postare ]', '[ Të dhënat ligjore ]'],
+    imprint: 'Të dhënat ligjore',
     links: ['Politika e Privatësisë', 'Kushtet e Përdorimit', 'Fleta e Informacionit për Pjesëmarrësin'],
-    compliance: 'Ky studim kryhet në përputhje me Deklaratën e Helsinkit dhe standardet e zbatueshme të Praktikës së Mirë Klinike (GCP), dhe është shqyrtuar nga [ emri i Komitetit të Etikës ].',
+    compliance: 'Ky studim kryhet në përputhje me Deklaratën e Helsinkit dhe standardet e zbatueshme të Praktikës së Mirë Klinike (GCP), dhe është shqyrtuar nga Dorina Serafeim.',
     crisis: 'Nëse keni mendime vetëvrasëse ose për vetëlëndim, ju lutemi kontaktoni menjëherë numrin lokal të urgjencës ose një linjë ndihme për krizat — nuk keni nevojë të jeni pjesëmarrës në këtë studim për të kërkuar ndihmë.',
   },
 }

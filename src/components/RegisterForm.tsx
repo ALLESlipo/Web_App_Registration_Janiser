@@ -39,6 +39,31 @@ function isValidPhone(phone: string) {
   return /^\+?[\d\s().-]{7,24}$/.test(phone) && digits.length >= 7 && digits.length <= 20
 }
 
+// The date of birth is typed as DD/MM/YYYY (European order) in a text field: a native date
+// input would show the browser's own format, e.g. MM/DD/YYYY in US-English browsers.
+
+// Keeps the digits and adds the slashes, so "15051990" reads "15/05/1990". A slash is only
+// added once the next digit is typed, so Backspace is never stuck behind it.
+function formatDateOfBirth(raw: string) {
+  // Browser autofill may supply an ISO date; turn it round instead of mangling it.
+  const iso = raw.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (iso) return `${iso[3]}/${iso[2]}/${iso[1]}`
+  const digits = raw.replace(/\D/g, '').slice(0, 8)
+  return [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4)].filter(Boolean).join('/')
+}
+
+// "15/05/1990" → "1990-05-15" (the format the plugin stores), or null if it is not a real date.
+function parseDateOfBirth(value: string): string | null {
+  const m = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/)
+  if (!m) return null
+  const [day, month, year] = [Number(m[1]), Number(m[2]), Number(m[3])]
+  const date = new Date(Date.UTC(year, month - 1, day))
+  // Rejects dates like 31/02 that JavaScript would silently roll over into March.
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null
+  if (year < 1900 || date.getTime() > Date.now()) return null
+  return `${m[3]}-${m[2]}-${m[1]}`
+}
+
 function validate(fields: Fields, consents: Record<string, boolean>, consentIds: string[]): Errors {
   const errors: Errors = {}
   for (const key of required) {
@@ -50,11 +75,8 @@ function validate(fields: Fields, consents: Record<string, boolean>, consentIds:
   if (fields.phone && !isValidPhone(fields.phone.trim())) {
     errors.phone = 'phone'
   }
-  if (fields.dateOfBirth) {
-    const dob = new Date(fields.dateOfBirth)
-    if (Number.isNaN(dob.getTime()) || dob > new Date() || dob.getFullYear() < 1900) {
-      errors.dateOfBirth = 'dateOfBirth'
-    }
+  if (fields.dateOfBirth && !parseDateOfBirth(fields.dateOfBirth)) {
+    errors.dateOfBirth = 'dateOfBirth'
   }
   if (!consentIds.every((id) => consents[id])) {
     errors.consent = 'consent'
@@ -94,8 +116,13 @@ export function RegisterForm() {
     return errorKey ? register.errors[errorKey] : undefined
   }
 
-  const update = (key: keyof Fields) => (e: { target: { value: string } }) =>
-    setFields((f) => ({ ...f, [key]: e.target.value }))
+  // Editing a field clears its error message; the full check runs again on submit.
+  const setField = (key: keyof Fields, value: string) => {
+    setFields((f) => ({ ...f, [key]: value }))
+    setErrors(({ [key]: _cleared, ...rest }) => rest)
+  }
+
+  const update = (key: keyof Fields) => (e: { target: { value: string } }) => setField(key, e.target.value)
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -110,27 +137,30 @@ export function RegisterForm() {
     setStatus('submitting')
     try {
       if (ENDPOINT) {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            first_name: fields.firstName.trim(),
-            last_name: fields.lastName.trim(),
-            birthday: fields.dateOfBirth,
-            gender: fields.gender,
-            phone: fields.phone.trim(),
-            email: fields.email.trim(),
-            country: fields.country.trim(),
-            city: fields.city.trim(),
-            preferred_language: fields.language,
-            contact_time: fields.contactTime,
-            project_id: PROJECT_ID,
-            consent: true,
-            consents,
-            language: PLUGIN_LANGUAGES.includes(lang) ? lang : 'en',
-            website: honeypot,
-          }),
+        // Sent form-encoded rather than as JSON: a form POST is a "simple" cross-origin
+        // request, so the browser skips the CORS preflight. The production server answers
+        // preflights without Access-Control-Allow-Origin, which would block a JSON request.
+        const body = new URLSearchParams({
+          first_name: fields.firstName.trim(),
+          last_name: fields.lastName.trim(),
+          birthday: parseDateOfBirth(fields.dateOfBirth) ?? '',
+          gender: fields.gender,
+          phone: fields.phone.trim(),
+          email: fields.email.trim(),
+          country: fields.country.trim(),
+          city: fields.city.trim(),
+          preferred_language: fields.language,
+          contact_time: fields.contactTime,
+          project_id: String(PROJECT_ID),
+          consent: '1',
+          language: PLUGIN_LANGUAGES.includes(lang) ? lang : 'en',
+          website: honeypot,
         })
+        // PHP reads consents[age]=1 etc. as an array, like the JSON object before.
+        for (const [id, agreed] of Object.entries(consents)) {
+          if (agreed) body.append(`consents[${id}]`, '1')
+        }
+        const res = await fetch(ENDPOINT, { method: 'POST', body })
         const data = await res.json().catch(() => null)
         if (!res.ok || !data?.success) {
           setErrors({ form: errorForStatus(res.status) })
@@ -220,7 +250,26 @@ export function RegisterForm() {
         <div className="form__grid">
           {field('firstName', 'text', 'given-name')}
           {field('lastName', 'text', 'family-name')}
-          {field('dateOfBirth', 'date', 'bday')}
+          <div className="field">
+            <label htmlFor="reg-dateOfBirth">
+              {register.fields.dateOfBirth}
+              <span className="field__optional"> ({register.dateFormat})</span>
+            </label>
+            <input
+              id="reg-dateOfBirth"
+              type="text"
+              inputMode="numeric"
+              autoComplete="bday"
+              placeholder={register.dateFormat}
+              maxLength={10}
+              value={fields.dateOfBirth}
+              onChange={(e) => setField('dateOfBirth', formatDateOfBirth(e.target.value))}
+              aria-required
+              aria-invalid={!!errors.dateOfBirth}
+              aria-describedby={errors.dateOfBirth ? 'reg-dateOfBirth-error' : undefined}
+            />
+            {errors.dateOfBirth && <p id="reg-dateOfBirth-error" className="field__error">{message('dateOfBirth')}</p>}
+          </div>
           {select('gender', register.genders)}
           {field('email', 'email', 'email')}
           {field('phone', 'tel', 'tel')}

@@ -108,6 +108,7 @@ export const en: Content = {
       contactTime: 'Preferred contact time',
     },
     optional: 'optional',
+    dateFormat: 'DD/MM/YYYY',
     genders: [
       { value: 'female', label: 'Female' },
       { value: 'male', label: 'Male' },
@@ -140,7 +141,7 @@ export const en: Content = {
       network: 'Your registration could not be sent. Please try again, or contact us directly.',
     },
     confirmationTitle: 'Thank you — we’ve received your registration.',
-    confirmation: 'A member of our study team will contact you within [ X ] business days to answer your questions and arrange your baseline visit. In the meantime, feel free to explore “My Study Area” or contact us with any questions.',
+    confirmation: 'A member of our study team will contact you within 2 business days to answer your questions and arrange your baseline visit. In the meantime, feel free to explore “My Study Area” or contact us with any questions.',
   },
   studyArea: {
     title: 'My Study Area',
@@ -169,17 +170,17 @@ export const en: Content = {
   },
   contact: {
     title: 'Contact',
-    general: { label: 'General questions', email: '[ email ]', phone: '[ phone ]' },
-    nurse: { label: 'Your study nurse', text: 'Available via My Study Area once registered.' },
+    general: { label: 'General questions' },
+    nurse: { label: 'Your study nurse', text: 'Available via My Study Area once registered.', whatsapp: 'Chat on WhatsApp' },
     emergency: {
       label: 'Medical emergencies or safety concerns',
       text: 'Call 112 (or your local emergency number) or go to your nearest emergency room. This website and study team cannot provide emergency care.',
     },
   },
   footer: {
-    org: ['[ Legal name of sponsor/institution ]', '[ Postal address ]', '[ Imprint / Impressum ]'],
+    imprint: 'Imprint',
     links: ['Privacy Policy', 'Terms of Use', 'Participant Information Sheet'],
-    compliance: 'This study is conducted in accordance with the Declaration of Helsinki and applicable Good Clinical Practice (GCP) standards, and has been reviewed by [ Ethics Committee name ].',
+    compliance: 'This study is conducted in accordance with the Declaration of Helsinki and applicable Good Clinical Practice (GCP) standards, and has been reviewed by Dorina Serafeim.',
     crisis: 'If you are having thoughts of suicide or self-harm, please contact your local emergency number or a crisis helpline immediately — you don’t have to be in this study to reach out for help.',
   },
 }

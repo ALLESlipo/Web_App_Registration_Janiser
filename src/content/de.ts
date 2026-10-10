@@ -109,6 +109,7 @@ export const de: Content = {
       contactTime: 'Bevorzugte Kontaktzeit',
     },
     optional: 'optional',
+    dateFormat: 'TT/MM/JJJJ',
     genders: [
       { value: 'female', label: 'Weiblich' },
       { value: 'male', label: 'Männlich' },
@@ -141,7 +142,7 @@ export const de: Content = {
       network: 'Ihre Registrierung konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.',
     },
     confirmationTitle: 'Vielen Dank — wir haben Ihre Registrierung erhalten.',
-    confirmation: 'Ein Mitglied unseres Studienteams wird sich innerhalb von [ X ] Werktagen bei Ihnen melden, um Ihre Fragen zu beantworten und Ihren Basistermin zu vereinbaren. In der Zwischenzeit können Sie gerne „Mein Studienbereich“ erkunden oder uns bei Fragen kontaktieren.',
+    confirmation: 'Ein Mitglied unseres Studienteams wird sich innerhalb von 2 Werktagen bei Ihnen melden, um Ihre Fragen zu beantworten und Ihren Basistermin zu vereinbaren. In der Zwischenzeit können Sie gerne „Mein Studienbereich“ erkunden oder uns bei Fragen kontaktieren.',
   },
   studyArea: {
     title: 'Mein Studienbereich',
@@ -170,17 +171,17 @@ export const de: Content = {
   },
   contact: {
     title: 'Kontakt',
-    general: { label: 'Allgemeine Fragen', email: '[ E-Mail ]', phone: '[ Telefon ]' },
-    nurse: { label: 'Ihre Studienpflegekraft', text: 'Erreichbar über „Mein Studienbereich“ nach der Registrierung.' },
+    general: { label: 'Allgemeine Fragen' },
+    nurse: { label: 'Ihre Studienpflegekraft', text: 'Erreichbar über „Mein Studienbereich“ nach der Registrierung.', whatsapp: 'Per WhatsApp chatten' },
     emergency: {
       label: 'Medizinische Notfälle oder Sicherheitsbedenken',
       text: 'Wählen Sie 112 (oder Ihre lokale Notrufnummer) oder suchen Sie die nächste Notaufnahme auf. Diese Website und das Studienteam können keine Notfallversorgung leisten.',
     },
   },
   footer: {
-    org: ['[ Rechtlicher Name des Sponsors/der Institution ]', '[ Postanschrift ]', '[ Impressum ]'],
+    imprint: 'Impressum',
     links: ['Datenschutzerklärung', 'Nutzungsbedingungen', 'Teilnehmerinformation'],
-    compliance: 'Diese Studie wird in Übereinstimmung mit der Deklaration von Helsinki und den geltenden Standards der Guten Klinischen Praxis (GCP) durchgeführt und wurde von [ Name der Ethikkommission ] geprüft.',
+    compliance: 'Diese Studie wird in Übereinstimmung mit der Deklaration von Helsinki und den geltenden Standards der Guten Klinischen Praxis (GCP) durchgeführt und wurde von Dorina Serafeim geprüft.',
     crisis: 'Wenn Sie Suizidgedanken oder Gedanken an Selbstverletzung haben, wenden Sie sich bitte sofort an Ihre lokale Notrufnummer oder eine Krisen-Hotline — Sie müssen nicht an dieser Studie teilnehmen, um sich Hilfe zu holen.',
   },
 }
