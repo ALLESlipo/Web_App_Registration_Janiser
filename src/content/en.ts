@@ -27,7 +27,7 @@ export const en: Content = {
   },
   hero: {
     headline: 'Researching a new approach to recurrent depression',
-    subheadline: `${STUDY_NAME} is a clinical study investigating whether a 24-day probiotic intervention is associated with changes in depressive symptoms in adults with recurrent Major Depressive Disorder (MDD) who have not responded sufficiently to previous antidepressant treatments. Participation is voluntary and free of charge, with clinical oversight and support from the study team throughout the study.`,
+    subheadline: `${STUDY_NAME} is a clinical study investigating whether a 24-day probiotic intervention is associated with changes in depressive symptoms within 60 days in adults with recurrent depression (TRD2) who have not responded adequately to two previous psychopharmacological treatments. Participation is voluntary and free of charge; the study team will accompany you throughout the study with clinical care and support.`,
     primaryCta: 'Check If I Can Take Part',
     secondaryCta: 'Register Now',
   },

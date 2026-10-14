@@ -28,7 +28,7 @@ export const de: Content = {
   },
   hero: {
     headline: 'Ein neuer Forschungsansatz bei wiederkehrender Depression',
-    subheadline: `${STUDY_NAME} ist eine klinische Studie, die untersucht, ob eine 24-tägige Probiotika-Intervention mit Veränderungen depressiver Symptome bei Erwachsenen mit wiederkehrender Major Depression (MDD) einhergeht, die auf bisherige antidepressive Behandlungen nicht ausreichend angesprochen haben. Die Teilnahme ist freiwillig und kostenlos; das Studienteam begleitet Sie während der gesamten Studie mit klinischer Betreuung und Unterstützung.`,
+    subheadline: `${STUDY_NAME} ist eine klinische Studie, die untersucht, ob eine 24-tägige Probiotika-Intervention innerhalb von 60 Tagen mit Veränderungen depressiver Symptome bei Erwachsenen mit rezidivierender Depression (TRD2) in Verbindung steht, die auf zwei vorherige psychopharmakologische Behandlungen nicht ausreichend angesprochen haben. Die Teilnahme ist freiwillig und kostenlos; das Studienteam begleitet Sie während der gesamten Studie mit klinischer Betreuung und Unterstützung.`,
     primaryCta: 'Prüfen, ob ich teilnehmen kann',
     secondaryCta: 'Jetzt registrieren',
   },

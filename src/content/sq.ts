@@ -28,7 +28,7 @@ export const sq: Content = {
   },
   hero: {
     headline: 'Kërkim për një qasje të re ndaj depresionit të përsëritur',
-    subheadline: `${STUDY_NAME} është një studim klinik që shqyrton nëse një ndërhyrje me probiotik prej 24 ditësh shoqërohet me ndryshime në simptomat depresive te të rriturit me çrregullim depresiv madhor (ÇDM) të përsëritur, të cilët nuk u janë përgjigjur mjaftueshëm trajtimeve të mëparshme antidepresive. Pjesëmarrja është vullnetare dhe falas, me mbikëqyrje klinike dhe mbështetje nga ekipi i studimit gjatë gjithë studimit.`,
+    subheadline: `${STUDY_NAME} është një studim klinik që shqyrton nëse një ndërhyrje me probiotik prej 24 ditësh shoqërohet me ndryshime në simptomat depresive brenda 60 ditëve te të rriturit me depresion të përsëritur (TRD2), të cilët nuk u janë përgjigjur mjaftueshëm dy trajtimeve të mëparshme psikofarmakologjike. Pjesëmarrja është vullnetare dhe falas; ekipi i studimit do t'ju shoqërojë gjatë gjithë studimit me kujdes klinik dhe mbështetje.`,
     primaryCta: 'Kontrollo nëse mund të marr pjesë',
     secondaryCta: 'Regjistrohu tani',
   },

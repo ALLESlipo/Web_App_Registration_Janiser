@@ -28,7 +28,7 @@ export const es: Content = {
   },
   hero: {
     headline: 'Investigando un nuevo enfoque para la depresión recurrente',
-    subheadline: `${STUDY_NAME} es un estudio clínico que investiga si una intervención probiótica de 24 días se asocia con cambios en los síntomas depresivos en adultos con trastorno depresivo mayor (TDM) recurrente que no han respondido suficientemente a tratamientos antidepresivos previos. La participación es voluntaria y gratuita, con supervisión clínica y apoyo del equipo del estudio durante todo el estudio.`,
+    subheadline: `${STUDY_NAME} es un estudio clínico que investiga si una intervención probiótica de 24 días se asocia con cambios en los síntomas depresivos en un plazo de 60 días en adultos con depresión recurrente (TRD2) que no han respondido adecuadamente a dos tratamientos psicofarmacológicos previos. La participación es voluntaria y gratuita; el equipo del estudio le acompañará durante todo el estudio con atención clínica y apoyo.`,
     primaryCta: 'Comprobar si puedo participar',
     secondaryCta: 'Registrarme ahora',
   },
